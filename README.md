@@ -89,3 +89,29 @@
 
 - 优先使用对象的合成/聚合将有助于你保持每个类被封装，并被集中
 在单个任务上，这样类和类继承的层次会保持较小规模，并且不太可能增长为不可控制的庞然大物。
+
+## 设计模式
+1. [抽象工厂模式](https://github.com/wenjy/design_patten_php/blob/master/AbstractFactory.php)
+2. [适配器模式](https://github.com/wenjy/design_patten_php/blob/master/Adapter.php)
+3. [桥接模式](https://github.com/wenjy/design_patten_php/blob/master/Bridge.php)
+4. [建造者模式](https://github.com/wenjy/design_patten_php/blob/master/Builder.php)
+5. [职责链模式](https://github.com/wenjy/design_patten_php/blob/master/Chain.php)
+6. [命令模式](https://github.com/wenjy/design_patten_php/blob/master/Command.php)
+7. [组合模式](https://github.com/wenjy/design_patten_php/blob/master/Component.php)
+8. [装饰模式](https://github.com/wenjy/design_patten_php/blob/master/Decorator.php)
+9. [外观模式](https://github.com/wenjy/design_patten_php/blob/master/Facade.php)
+10. [工厂方法模式](https://github.com/wenjy/design_patten_php/blob/master/FactoryMethod.php)
+11. [享元模式](https://github.com/wenjy/design_patten_php/blob/master/Flyweight.php)
+12. [解释器模式](https://github.com/wenjy/design_patten_php/blob/master/Interpreter.php)
+13. [中介者模式](https://github.com/wenjy/design_patten_php/blob/master/Mediator.php)
+14. [备忘录模式](https://github.com/wenjy/design_patten_php/blob/master/Memento.php)
+15. [观察者模式](https://github.com/wenjy/design_patten_php/blob/master/Observer.php)
+16. [简单工厂模式](https://github.com/wenjy/design_patten_php/blob/master/Operation.php)
+17. [原型模式](https://github.com/wenjy/design_patten_php/blob/master/Prototype.php)
+18. [代理模式](https://github.com/wenjy/design_patten_php/blob/master/Proxy.php)
+19. [单例模式](https://github.com/wenjy/design_patten_php/blob/master/Singleton.php)
+20. [状态模式](https://github.com/wenjy/design_patten_php/blob/master/State.php)
+21. [状态模式1](https://github.com/wenjy/design_patten_php/blob/master/StateWork.php)
+22. [策略模式](https://github.com/wenjy/design_patten_php/blob/master/Strategy.php)
+23. [模板方法模式](https://github.com/wenjy/design_patten_php/blob/master/TemplateMethod.php)
+24. [访问者模式](https://github.com/wenjy/design_patten_php/blob/master/Visitor.php)
