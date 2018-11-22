@@ -15,6 +15,12 @@
  * 我们通过模板方法模式把这些行为搬移到单一对多地方，这样就帮助子类摆脱重复的不变行为的纠缠。
  *
  */
+
+/**
+ * 实现了一个模板方法，定义了算法的骨架，具体子类将重定义抽象方法以实现一个算法的步骤
+ *
+ * Class AbstractClass
+ */
 abstract class AbstractClass
 {
     public abstract function operation1();
@@ -28,6 +34,11 @@ abstract class AbstractClass
     }
 }
 
+/**
+ * 子类实现具体的算法
+ *
+ * Class ClassA
+ */
 class ClassA extends AbstractClass
 {
     public function operation1()

@@ -4,9 +4,15 @@
  * 装饰模式
  *
  * 动态的给一个对象添加一些额外的职责，就增加功能来说，装饰模式比生成子类更为灵活
+ *
+ * 当系统需要新功能的时候，是向旧的类中添加新的代码。这些新加的代码通常装饰了原有类的核心职责或者主要行为；
+ * 在主类中加入了新的字段、新的方法和新的逻辑，从而增加了主类的复杂度，而这些新加入的东西仅仅是为了满足
+ * 一些只在某种特定情况下才会执行的特殊行为的需要。
+ *
  * 为已有的功能动态地添加更多功能的一种方式
  * 把类中的装饰功能从类中搬移出去，这样可以简化原有的类，有效地把类的核心职责和装饰功能区分开，
  * 而且可以去除相关类中重复的装饰逻辑
+ *
  */
 
 /**
@@ -56,6 +62,12 @@ class Decorator extends Component
      */
     protected $component;
 
+    /**
+     * 设置要装饰的对象
+     *
+     * @param Component $component
+     * @author jiangyi
+     */
     public function setComponent(Component $component)
     {
         $this->component = $component;

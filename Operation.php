@@ -3,6 +3,8 @@
 /**
  * 简单工厂模式
  *
+ * 用一个工厂来创建我们所需要的类
+ *
  * Class Operation
  */
 class Operation

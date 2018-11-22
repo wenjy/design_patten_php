@@ -35,6 +35,11 @@ class LeiFeng
  */
 class Undergraduate extends LeiFeng
 {
+    public function sweep()
+    {
+        parent::sweep();
+        echo '扫地后休息一会' . PHP_EOL;
+    }
 
 }
 

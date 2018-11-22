@@ -44,6 +44,11 @@
 
 - 针对接口编程，不要对现实编程。
 
+- 依赖倒转其实可以说是面向对象设计的标志，用那种语言来编写程序不重要，
+如果编写时考虑的都是如何针对抽象编程而不是针对细节编程，
+即程序中所有的依赖关系都是终止于抽象类或者接口，那么就是面向对象的设计，
+反之那就是过程化的设计了。
+
 ### 里氏代换原则
 
 ##### 子类型必须能够替换掉它们的父类型。
@@ -56,11 +61,6 @@
 父类才能真正被复用，而子类也能够在父类的基础上增加新的行为。
 
 - 正是由于子类型的可替换性才使得使用父类类型的模块在无修改的情况下就可以扩展。
-
-- 依赖倒转其实可以说是面向对象设计的标志，用那种语言来编写程序不重要，
-如果编写时考虑的都是如何针对抽象编程而不是针对细节编程，
-即程序中所有的依赖关系都是终止于抽象类或者接口，那么就是面向对象的设计，
-反之那就是过程化的设计了。
 
 ### 迪米特法则（最少知识原则）
 
@@ -91,27 +91,56 @@
 在单个任务上，这样类和类继承的层次会保持较小规模，并且不太可能增长为不可控制的庞然大物。
 
 ## 设计模式
-1. [抽象工厂模式](https://github.com/wenjy/design_patten_php/blob/master/AbstractFactory.php)
-2. [适配器模式](https://github.com/wenjy/design_patten_php/blob/master/Adapter.php)
-3. [桥接模式](https://github.com/wenjy/design_patten_php/blob/master/Bridge.php)
-4. [建造者模式](https://github.com/wenjy/design_patten_php/blob/master/Builder.php)
-5. [职责链模式](https://github.com/wenjy/design_patten_php/blob/master/Chain.php)
-6. [命令模式](https://github.com/wenjy/design_patten_php/blob/master/Command.php)
-7. [组合模式](https://github.com/wenjy/design_patten_php/blob/master/Component.php)
-8. [装饰模式](https://github.com/wenjy/design_patten_php/blob/master/Decorator.php)
-9. [外观模式](https://github.com/wenjy/design_patten_php/blob/master/Facade.php)
-10. [工厂方法模式](https://github.com/wenjy/design_patten_php/blob/master/FactoryMethod.php)
-11. [享元模式](https://github.com/wenjy/design_patten_php/blob/master/Flyweight.php)
-12. [解释器模式](https://github.com/wenjy/design_patten_php/blob/master/Interpreter.php)
-13. [中介者模式](https://github.com/wenjy/design_patten_php/blob/master/Mediator.php)
-14. [备忘录模式](https://github.com/wenjy/design_patten_php/blob/master/Memento.php)
-15. [观察者模式](https://github.com/wenjy/design_patten_php/blob/master/Observer.php)
-16. [简单工厂模式](https://github.com/wenjy/design_patten_php/blob/master/Operation.php)
-17. [原型模式](https://github.com/wenjy/design_patten_php/blob/master/Prototype.php)
-18. [代理模式](https://github.com/wenjy/design_patten_php/blob/master/Proxy.php)
-19. [单例模式](https://github.com/wenjy/design_patten_php/blob/master/Singleton.php)
-20. [状态模式](https://github.com/wenjy/design_patten_php/blob/master/State.php)
-21. [状态模式1](https://github.com/wenjy/design_patten_php/blob/master/StateWork.php)
-22. [策略模式](https://github.com/wenjy/design_patten_php/blob/master/Strategy.php)
-23. [模板方法模式](https://github.com/wenjy/design_patten_php/blob/master/TemplateMethod.php)
-24. [访问者模式](https://github.com/wenjy/design_patten_php/blob/master/Visitor.php)
+- [抽象工厂模式](https://github.com/wenjy/design_patten_php/blob/master/AbstractFactory.php)
+> 提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类
+- [适配器模式](https://github.com/wenjy/design_patten_php/blob/master/Adapter.php)
+> 将一个类的接口转换成客户所希望的另外的接口。 Adapter 模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。
+- [桥接模式](https://github.com/wenjy/design_patten_php/blob/master/Bridge.php)
+> 将抽象部分与它的实现部分分离，使它们都可以独立地变化
+- [建造者模式](https://github.com/wenjy/design_patten_php/blob/master/Builder.php)
+> 将一个复杂的对象的结构与它的表示分离，使得同样的构建过程可以创建不同的表示
+- [职责链模式](https://github.com/wenjy/design_patten_php/blob/master/ChainOfResponsibility.php)
+> 使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系
+  将这个对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。
+- [命令模式](https://github.com/wenjy/design_patten_php/blob/master/Command.php)
+> 将一个请求封装为一个对象，从而使你可以用不同的请求对客户进行参数化；
+  对请求排队或记录请求日志，以及支持可撤销的操作
+- [组合模式](https://github.com/wenjy/design_patten_php/blob/master/Composite.php)
+> 将对象组合成树形结构已表示部分-整体的层次结构。组合模式使得用户对单个对象和组合对象的使用具有一致性。
+- [装饰模式](https://github.com/wenjy/design_patten_php/blob/master/Decorator.php)
+> 动态的给一个对象添加一些额外的职责，就增加功能来说，装饰模式比生成子类更为灵活。
+- [外观模式](https://github.com/wenjy/design_patten_php/blob/master/Facade.php)
+> 为子系统中的一组接口提供一个一致的界面，此模式定义了一个高层接口，这个接口使得这一子系统更加容易使用
+- [工厂方法模式](https://github.com/wenjy/design_patten_php/blob/master/FactoryMethod.php)
+> 定义一个用于创建对象的接口，让子类决定实例化哪一个类，工厂方法使一个类的实例化延迟到子类
+- [享元模式](https://github.com/wenjy/design_patten_php/blob/master/Flyweight.php)
+> 运用共享技术有效地支持大量细粒度的对象
+- [解释器模式](https://github.com/wenjy/design_patten_php/blob/master/Interpreter.php)
+> 给定一个语言，定义它的文法的一种表示，并定义一个解释器，
+  这个解释器使用该表示来解释语言中的句子
+- [中介者模式](https://github.com/wenjy/design_patten_php/blob/master/Mediator.php)
+> 用一个中介对象来封装一系列的对象交互。中介者使各个对象不需要显式地相互引用，
+  从而使其耦合松散，而且可以独立地改变它们之间的交互
+- [备忘录模式](https://github.com/wenjy/design_patten_php/blob/master/Memento.php)
+> 在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。
+  这样以后就可以将该对象恢复都原先保存的状态。
+- [观察者模式](https://github.com/wenjy/design_patten_php/blob/master/Observer.php)
+> 定义了一种一对多的依赖关系，让多个观察者对象同时监听一个主题对象。
+  这个主题对象在状态发生变化时，会通知所有观察者对象，使它们能够自动更新自己。
+- [简单工厂模式](https://github.com/wenjy/design_patten_php/blob/master/Operation.php)
+> 用一个工厂来创建我们所需要的类
+- [原型模式](https://github.com/wenjy/design_patten_php/blob/master/Prototype.php)
+> 用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象
+- [代理模式](https://github.com/wenjy/design_patten_php/blob/master/Proxy.php)
+> 为其他对象提供一种代理以控制对这个对象的访问
+- [单例模式](https://github.com/wenjy/design_patten_php/blob/master/Singleton.php)
+> 保证一个类仅有一个实例，并提供一个访问它的全局访问点
+- [状态模式](https://github.com/wenjy/design_patten_php/blob/master/State.php)
+> 当一个对象的内在状态改变时允许改变其行为，这个对象看起来是改变了其类
+- [状态模式1](https://github.com/wenjy/design_patten_php/blob/master/StateWork.php)
+- [策略模式](https://github.com/wenjy/design_patten_php/blob/master/Strategy.php)
+> 它定义了算法家族，分别封装起来，让它们之间可以相互替换，此模式让算法的变化，不会影响到使用算法的用户
+- [模板方法模式](https://github.com/wenjy/design_patten_php/blob/master/TemplateMethod.php)
+> 定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重新定义该算法的某些特定步骤
+- [访问者模式](https://github.com/wenjy/design_patten_php/blob/master/Visitor.php)
+> 表示一个作用于某对象结构中的各元素的操作，它使你可以在不改变各元素的类的前提下定义作用于这些元素的新操作

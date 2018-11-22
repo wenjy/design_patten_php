@@ -56,6 +56,11 @@ abstract class Builder
 
     abstract public function buildPartB();
 
+    /**
+     * 这里不一定使用抽象方法，可以先实现
+     * @return mixed
+     * @author jiangyi
+     */
     abstract public function getResult();
 }
 
@@ -66,6 +71,10 @@ abstract class Builder
  */
 class ConcreteBuilder1 extends Builder
 {
+    /**
+     * 此属性可搬移至父类
+     * @var Product
+     */
     private $product;
 
     /**

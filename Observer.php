@@ -152,3 +152,81 @@ $s->attach(new ConcreteObserver($s, 'Z'));
 $s->setSubjectState('ABC');
 // 通知所有观察者
 $s->notify();
+
+/**
+ * PHP spl
+ * Class MySplSubject
+ */
+class MySplSubject implements SplSubject
+{
+    private $subjectState;
+    private $observers;
+
+    public function __construct()
+    {
+        $this->observers = new SplObjectStorage();
+    }
+
+    public function attach(SplObserver $observer)
+    {
+        $this->observers->attach($observer);
+    }
+
+    public function detach(SplObserver $observer)
+    {
+        $this->observers->detach($observer);
+    }
+
+    public function notify()
+    {
+        foreach ($this->observers as $observer) {
+            $observer->update($this);
+        }
+    }
+
+    public function getSubjectState()
+    {
+        return $this->subjectState;
+    }
+
+    public function setSubjectState($subjectState)
+    {
+        $this->subjectState = $subjectState;
+    }
+}
+
+class MySplObserver implements SplObserver
+{
+    private $name;
+    private $observerState;
+
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
+
+    public function setObserverState($observerState)
+    {
+        $this->observerState = $observerState;
+    }
+
+    public function update(SplSubject $subject)
+    {
+
+        $this->observerState = $subject->getSubjectState();
+        echo '观察者' . $this->name . '的新状态是' . $this->observerState . PHP_EOL;
+    }
+}
+
+// 实例化主题
+$s = new MySplSubject();
+// 给主题添加观察者
+$s->attach(new MySplObserver('X'));
+$s->attach(new MySplObserver('Y'));
+$s->attach(new MySplObserver('Z'));
+
+// 设置主题状态
+$s->setSubjectState('ABC');
+// 通知所有观察者
+$s->notify();
+

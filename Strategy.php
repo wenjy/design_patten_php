@@ -45,7 +45,7 @@ class StrategyA extends Strategy
 {
     public function algorithmInterface()
     {
-        echo '算法A实现';
+        echo '算法A实现' . PHP_EOL;
     }
 }
 
@@ -53,7 +53,7 @@ class StrategyB extends Strategy
 {
     public function algorithmInterface()
     {
-        echo '算法B实现';
+        echo '算法B实现' . PHP_EOL;
     }
 }
 
@@ -61,7 +61,7 @@ class StrategyC extends Strategy
 {
     public function AlgorithmInterface()
     {
-        echo '算法C实现';
+        echo '算法C实现' . PHP_EOL;
     }
 }
 
@@ -98,8 +98,9 @@ class Context
     }
 }
 
-//$context = new Context(new StrategyA());
-//$context->contextInterface();
+// 此处也算是依赖注入
+$context = new Context(new StrategyA());
+$context->contextInterface();
 
 /**
  * 结合简单工厂模式
@@ -114,12 +115,13 @@ class CashContext
 
     /**
      * CashContext constructor.
-     * 构造函数里通过参数实例化对应的算法类
+     * 构造函数里通过参数实例化对应的算法类，把注入的类整合为一个工厂
      * @param $type
+     * @throws Exception
      */
     public function __construct($type)
     {
-        switch ($type) {
+        switch (strtoupper($type)) {
             case 'A':
                 $this->strategy = new StrategyA();
                 break;
@@ -128,6 +130,9 @@ class CashContext
                 break;
             case 'C':
                 $this->strategy = new StrategyC();
+                break;
+            default:
+                throw new Exception('类型错误');
                 break;
         }
     }
@@ -144,4 +149,48 @@ class CashContext
 }
 
 $cashContext = new CashContext('B');
+$cashContext->contextInterface();
+
+class MyContext
+{
+    /**
+     * @var Strategy
+     */
+    public $strategy;
+
+    /**
+     * 可以把所有类型配置到一个数组中
+     * @var array
+     */
+    protected $config = [
+        'A' => StrategyA::class,
+        'B' => StrategyB::class,
+        'C' => StrategyC::class,
+    ];
+
+    /**
+     * MyContext constructor.
+     * @param $type
+     * @throws Exception
+     */
+    public function __construct($type)
+    {
+        if (!isset($this->config[strtoupper($type)])) {
+            throw new Exception('类型错误');
+        }
+        $this->strategy = new $this->config[strtoupper($type)];
+    }
+
+    /**
+     * 调用对应的子类方法
+     *
+     * @author jiangyi
+     */
+    public function contextInterface()
+    {
+        $this->strategy->algorithmInterface();
+    }
+}
+
+$cashContext = new MyContext('c');
 $cashContext->contextInterface();

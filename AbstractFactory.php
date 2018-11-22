@@ -8,14 +8,14 @@
 
 interface IDepartment
 {
-    public function insert();
+    public function insert(Department $department);
 
     public function getDepartment($id);
 }
 
 class MySqlDepartment implements IDepartment
 {
-    public function insert()
+    public function insert(Department $department)
     {
         echo 'mysql 新增记录' . PHP_EOL;
     }
@@ -28,7 +28,7 @@ class MySqlDepartment implements IDepartment
 
 class SqlServerDepartment implements IDepartment
 {
-    public function insert()
+    public function insert(Department $department)
     {
         echo 'sqlServer 新增记录' . PHP_EOL;
     }
@@ -59,3 +59,18 @@ class MySqlFactory implements IFactory
         return new MySqlDepartment();
     }
 }
+
+class Department
+{
+
+}
+
+$department = new Department();
+
+$iDepartment = (new MySqlFactory())->createDepartment();
+$iDepartment->insert($department);
+$iDepartment->getDepartment(1);
+
+$iDepartment = (new SqlServerFactory())->createDepartment();
+$iDepartment->insert($department);
+$iDepartment->getDepartment(1);
