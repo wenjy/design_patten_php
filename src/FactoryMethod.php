@@ -63,7 +63,7 @@ interface IFactory
  *
  * Class UndergraduateFactory
  */
-class UndergraduateFactory implements IFactory
+class UndergraduateFactory implements InterfaceFactory
 {
     public function createLeiFeng()
     {
@@ -71,7 +71,7 @@ class UndergraduateFactory implements IFactory
     }
 }
 
-class VolunteerFactory implements IFactory
+class VolunteerFactory implements InterfaceFactory
 {
     public function createLeiFeng()
     {

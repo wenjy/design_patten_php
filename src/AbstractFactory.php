@@ -39,12 +39,12 @@ class SqlServerDepartment implements IDepartment
     }
 }
 
-interface IFactory
+interface InterfaceFactory
 {
     public function createDepartment();
 }
 
-class SqlServerFactory implements IFactory
+class SqlServerFactory implements InterfaceFactory
 {
     public function createDepartment()
     {
@@ -52,7 +52,7 @@ class SqlServerFactory implements IFactory
     }
 }
 
-class MySqlFactory implements IFactory
+class MySqlFactory implements InterfaceFactory
 {
     public function createDepartment()
     {
