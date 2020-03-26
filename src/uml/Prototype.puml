@@ -1,0 +1,12 @@
+@startuml
+
+interface Prototype
+
+Prototype <|-- ConcretePrototype1
+Prototype <|-- ConcretePrototype2
+
+interface Prototype {
++clone()
+}
+
+@enduml
