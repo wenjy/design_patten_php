@@ -16,7 +16,6 @@
 /**
  * 产品类，由多个部件组成
  *
- * Class Product
  */
 class Product
 {
@@ -25,6 +24,10 @@ class Product
      */
     public $parts = [];
 
+    /**
+     * 添加一个部件
+     * @param $part
+     */
     public function add($part)
     {
         $this->parts[] = $part;
@@ -47,13 +50,21 @@ class Product
 /**
  * Builder 是为了创建一个 Product 对象的各个部分指定的抽象接口。
  * 也就是 Product 的各个部件组成，和返回 Product
+ * 例如现在这个Product 需要A B两个部分
  *
- * Class Builder
  */
 abstract class Builder
 {
+    /**
+     * 构建部分A
+     * @return mixed
+     */
     abstract public function buildPartA();
 
+    /**
+     * 构建部分B
+     * @return mixed
+     */
     abstract public function buildPartB();
 
     /**
@@ -66,8 +77,6 @@ abstract class Builder
 
 /**
  * 具体建造者，实现 Builder 接口，构造和装配各个部件
- *
- * Class ConcreteBuilder1
  */
 class ConcreteBuilder1 extends Builder
 {
@@ -101,6 +110,9 @@ class ConcreteBuilder1 extends Builder
     }
 }
 
+/**
+ * 具体建造者，实现 Builder 接口，构造和装配各个部件
+ */
 class ConcreteBuilder2 extends Builder
 {
     private $product;
@@ -132,7 +144,6 @@ class ConcreteBuilder2 extends Builder
 /**
  * 指挥者，构建一个使用 Builder 的对象
  *
- * Class Director
  */
 class Director
 {

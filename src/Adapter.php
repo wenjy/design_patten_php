@@ -67,3 +67,6 @@ class Adapter extends Target
 
 $target = new Adapter();
 $target->request();
+
+// 有时候使用第三方包，有注入适配器的情况，我们自己实现一些功能和方法，然后和第三方包一起封装
+// 第三方包判断方法是否存在，然后调用我们注入的方法

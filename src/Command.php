@@ -24,12 +24,12 @@
 abstract class Command
 {
     /**
+     * 具体的命令执行者
      * @var Receiver
      */
     protected $receiver;
 
     /**
-     * Command constructor.
      * @param $receiver
      */
     public function __construct(Receiver $receiver)
@@ -55,7 +55,7 @@ abstract class Command
 class ConcreteCommand extends Command
 {
     /**
-     * ConcreteCommand constructor.
+     * @inheritDoc
      */
     public function __construct(Receiver $receiver)
     {
@@ -70,8 +70,6 @@ class ConcreteCommand extends Command
 
 /**
  * 要求该命令执行这个请求
- *
- * Class Invoker
  */
 class Invoker
 {
