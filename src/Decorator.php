@@ -17,11 +17,13 @@
 
 /**
  * 定义一个对象接口，可以给这些对象动态的添加职责
- *
- * Class Component
  */
-abstract class Component
+abstract class DecoratorComponent
 {
+    /**
+     * 添加职责的操作
+     * @return mixed
+     */
     public abstract function operation();
 }
 
@@ -31,10 +33,8 @@ abstract class Component
  * 如果只有一个 ConcreteComponent 类而没有抽象的 Component 类，那么 Decorator 类
  * 可以是 ConcreteComponent 的一个子类。同样的道理，如果只有一个 Decorator 类，那么就没有必要
  * 建立一个单独的 Decorator 类，而可以把 Decorator 类和 ConcreteComponent 的责任合并成一个类。
- *
- * Class ConcreteComponent
  */
-class ConcreteComponent extends Component
+class ConcreteDecoratorComponent extends DecoratorComponent
 {
     public function operation()
     {
@@ -52,23 +52,21 @@ class ConcreteComponent extends Component
  * 是无需知道 Decorator 的存在的
  * 利用 setComponent 来对对象进行包装，每个装饰对象的实现就和如何使用这个对象分离开了，
  * 每个装饰对象只关心自己的功能，不需要关心如何被添加到对象链当中
- *
- * Class Decorator
  */
-class Decorator extends Component
+class Decorator extends DecoratorComponent
 {
     /**
-     * @var Component
+     * @var DecoratorComponent
      */
     protected $component;
 
     /**
      * 设置要装饰的对象
      *
-     * @param Component $component
+     * @param DecoratorComponent $component
      * @author jiangyi
      */
-    public function setComponent(Component $component)
+    public function setComponent(DecoratorComponent $component)
     {
         $this->component = $component;
     }
@@ -128,7 +126,7 @@ class DecoratorC extends Decorator
     }
 }
 
-$c = new ConcreteComponent();
+$c = new ConcreteDecoratorComponent();
 $d1 = new DecoratorA();
 $d2 = new DecoratorB();
 $d3 = new DecoratorC();

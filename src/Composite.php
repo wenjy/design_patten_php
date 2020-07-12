@@ -19,42 +19,50 @@
 /**
  * 组合中的对象声明接口，在适当的情况下，实现所有类共有接口的默认行为。
  * 声明一个接口用于访问和管理 Component 的子部件
- *
- * Class Component
  */
 abstract class Component
 {
+    /**
+     * @var string 组件名
+     */
     protected $name;
 
     /**
-     * Component constructor.
-     * @param $name
+     * @param string $name
      */
-    public function __construct($name)
+    public function __construct(string $name)
     {
         $this->name = $name;
     }
 
+    /**
+     * 添加组件
+     * @param Component $c
+     * @return mixed
+     */
     abstract public function add(Component $c);
 
+    /**
+     * 删除组件
+     * @param Component $c
+     * @return mixed
+     */
     abstract public function remove(Component $c);
 
-    abstract public function display($depth);
-
+    /**
+     * 显示组件
+     * @param int $depth 深度
+     * @return mixed
+     */
+    abstract public function display(int $depth);
 }
 
 /**
  * 在组合中表示叶节点对象，叶节点没有子节点
- *
- * Class Leaf
  */
 class Leaf extends Component
 {
-
-    /**
-     * Leaf constructor.
-     */
-    public function __construct($name)
+    public function __construct(string $name)
     {
         parent::__construct($name);
     }
@@ -69,17 +77,14 @@ class Leaf extends Component
         echo '不能删除' . PHP_EOL;
     }
 
-    public function display($depth)
+    public function display(int $depth)
     {
         echo str_repeat('-', $depth) . $this->name . PHP_EOL;
     }
 }
 
 /**
- * 定义有枝节点行为，用来存储子部件，在 Component 接口中实现与子部件有关的操作，
- * 比如增加、删除
- *
- * Class Composite
+ * 定义有枝节点行为，用来存储子部件，在 Component 接口中实现与子部件有关的操作，比如增加、删除
  */
 class Composite extends Component
 {
@@ -89,9 +94,9 @@ class Composite extends Component
     private $list = [];
 
     /**
-     * Composite constructor.
+     * @inheritDoc
      */
-    public function __construct($name)
+    public function __construct(string $name)
     {
         parent::__construct($name);
     }
@@ -109,7 +114,7 @@ class Composite extends Component
         }
     }
 
-    public function display($depth)
+    public function display(int $depth)
     {
         echo str_repeat('-', $depth) . $this->name . PHP_EOL;
         foreach ($this->list as $children) {
@@ -134,9 +139,9 @@ $comp2->add(new Leaf('xy a'));
 $comp2->add(new Leaf('xy b'));
 
 $root->add(new Leaf('leaf c'));
-$leafd = new Leaf('leaf d');
-$root->add($leafd);
-$root->remove($leafd);
+$leaf = new Leaf('leaf d');
+$root->add($leaf);
+$root->remove($leaf);
 
 $root->add($comp2);
 $root->display(0);
